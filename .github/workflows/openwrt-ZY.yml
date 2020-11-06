@@ -12,16 +12,18 @@ on:
   repository_dispatch:
   workflow_dispatch:
     inputs:
-      ssh:
+      ssh: 
         description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
-  schedule:
-    - cron: 0 18 */3 * *
-
+        required: true
+        default: 'true'
+#  schedule:
+#    - cron: 0 18 */3 * *
+# 点击star才会触发    
+  watch:
+      types: [started]
 env:
-  REPO_URL: https://github.com/coolsnowwolf/openwrt
-  REPO_BRANCH: lede-17.01
+  REPO_URL: https://github.com/project-openwrt/openwrt
+  REPO_BRANCH: openwrt-18.06
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: zy.config
   DIY_P1_SH: diy-part1.sh
